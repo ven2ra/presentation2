@@ -55,6 +55,11 @@ export default function HeroSection() {
       speed={18}
       axis={55}
     >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-[5] bg-[radial-gradient(ellipse_60%_50%_at_50%_55%,var(--background)_0%,transparent_70%)]"
+      />
+
       <div className="relative z-10 flex h-full flex-col items-center justify-center gap-8 px-6 text-center">
         <div className="max-w-3xl space-y-5">
           <h1 className="text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
