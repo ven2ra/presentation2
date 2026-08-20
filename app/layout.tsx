@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
-import { Golos_Text, Geist_Mono } from "next/font/google";
+import { Commissioner, Unbounded, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const golosText = Golos_Text({
+const commissioner = Commissioner({
   variable: "--font-geist-sans",
+  subsets: ["latin", "cyrillic"],
+});
+
+const unbounded = Unbounded({
+  variable: "--font-display",
+  weight: ["600", "700", "800"],
   subsets: ["latin", "cyrillic"],
 });
 
@@ -21,7 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${golosText.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${commissioner.variable} ${unbounded.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

@@ -118,7 +118,7 @@ function FeatureCard({
         transitionDelay: revealed ? `${(index % 3) * 90}ms` : "0ms",
       }}
     >
-      <span className="pointer-events-none absolute top-7 right-8 text-4xl font-extrabold tracking-tight text-white/[0.04] transition-colors duration-300 group-hover:text-white/[0.07]">
+      <span className="pointer-events-none absolute top-7 right-8 font-[family-name:var(--font-display)] text-4xl font-extrabold tracking-tight text-white/[0.04] transition-colors duration-300 group-hover:text-white/[0.07]">
         {String(index + 1).padStart(2, "0")}
       </span>
 
@@ -127,7 +127,7 @@ function FeatureCard({
       </div>
 
       <div className="flex flex-col gap-2">
-        <h3 className="text-lg leading-tight font-semibold tracking-tight text-white">
+        <h3 className="font-[family-name:var(--font-display)] text-lg leading-tight font-semibold tracking-tight text-white">
           {feature.title}
         </h3>
         <p className="text-[14.5px] leading-relaxed text-white/50">
@@ -177,7 +177,7 @@ export default function FeaturesSection() {
             Возможности
           </span>
 
-          <h2 className="text-balance text-3xl leading-[1.1] font-extrabold tracking-[-0.03em] text-white sm:text-4xl lg:text-[2.75rem]">
+          <h2 className="text-balance font-[family-name:var(--font-display)] text-3xl leading-[1.1] font-extrabold tracking-[-0.02em] text-white sm:text-4xl lg:text-[2.75rem]">
             Что получает уже отдел с первого дня?
           </h2>
 

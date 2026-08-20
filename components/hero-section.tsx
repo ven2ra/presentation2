@@ -20,7 +20,7 @@ export default function HeroSection() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="max-w-xl text-center lg:text-left"
         >
-          <h1 className="text-4xl font-semibold leading-[1.15] tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="font-[family-name:var(--font-display)] text-4xl leading-[1.12] font-extrabold tracking-[-0.02em] text-white sm:text-5xl lg:text-6xl">
             Единая рабочая среда
             <br />
             для обращений, звонков и чатов
