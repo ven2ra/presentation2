@@ -9,7 +9,6 @@ const FEATURES = [
     title: "Единый рабочий стол",
     description:
       "Обращения, звонки и чаты в одном месте — без переключения между системами.",
-    accent: true,
   },
   {
     icon: (
@@ -74,40 +73,60 @@ const FEATURES = [
 export default function FeaturesSection() {
   return (
     <section
-      className="flex min-h-screen items-center justify-center bg-black px-5 py-16"
-      style={{
-        backgroundImage: "radial-gradient(#262626 1px, transparent 1px)",
-        backgroundSize: "20px 20px",
-      }}
+      id="features"
+      className="relative scroll-mt-6 overflow-hidden bg-black px-5 py-28 sm:py-32"
     >
-      <div className="w-full max-w-[1100px]">
-        <h2 className="mb-12 text-balance text-center text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-          Что получает уже отдел с первого дня?
-        </h2>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            "radial-gradient(ellipse 60% 50% at 50% 0%, color-mix(in oklch, white 6%, transparent) 0%, transparent 60%)," +
+            "radial-gradient(#1f1f1f 1px, transparent 1px)",
+          backgroundSize: "100% 100%, 22px 22px",
+        }}
+      />
 
-        <div className="grid grid-cols-1 overflow-hidden rounded-2xl border border-[#f0f0f0] bg-white md:grid-cols-3">
-          {FEATURES.map((feature) => (
+      <div className="relative mx-auto w-full max-w-[1100px]">
+        <div className="mx-auto mb-16 flex max-w-2xl flex-col items-center gap-5 text-center sm:mb-20">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-medium tracking-wide text-white/60 backdrop-blur-sm">
+            Возможности
+          </span>
+
+          <h2 className="text-balance font-[family-name:var(--font-playfair-display)] text-3xl leading-[1.15] font-semibold tracking-tight text-white sm:text-4xl lg:text-[2.75rem]">
+            Что получает уже отдел с первого дня?
+          </h2>
+
+          <p className="text-balance text-base leading-relaxed text-white/50 sm:text-lg">
+            Никаких долгих внедрений и обучения — команда начинает работать
+            в системе в первый же день.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-3xl bg-white/[0.06] sm:grid-cols-2 lg:grid-cols-3">
+          {FEATURES.map((feature, i) => (
             <div
               key={feature.title}
-              className="group relative border-b border-[#f0f0f0] py-9 pr-8 pl-10 transition-colors duration-200 last:border-b-0 hover:bg-[#fafafa] md:[&:nth-child(3n)]:border-r-0 md:[&:nth-child(n+4)]:border-b-0 md:border-r"
+              className="group relative flex flex-col gap-5 bg-[#0a0a0a] p-9 transition-colors duration-300 hover:bg-[#101010]"
             >
-              <span
-                className="absolute top-7 bottom-7 left-0 rounded-r-sm"
-                style={
-                  feature.accent
-                    ? { width: 4, background: "#3b82f6" }
-                    : { width: 3, background: "#e5e7eb" }
-                }
-              />
+              <span className="pointer-events-none absolute top-7 right-8 font-[family-name:var(--font-playfair-display)] text-4xl font-semibold text-white/[0.04] transition-colors duration-300 group-hover:text-white/[0.07]">
+                {String(i + 1).padStart(2, "0")}
+              </span>
 
-              <div className="mb-5 h-6 w-6 text-[#9ca3af]">{feature.icon}</div>
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white/60 transition-all duration-300 group-hover:border-emerald-400/40 group-hover:bg-emerald-400/10 group-hover:text-emerald-300">
+                <div className="h-5 w-5">{feature.icon}</div>
+              </div>
 
-              <h3 className="mb-3 text-lg leading-tight font-semibold tracking-tight text-[#111827]">
-                {feature.title}
-              </h3>
-              <p className="text-[14.5px] leading-relaxed text-[#6b7280]">
-                {feature.description}
-              </p>
+              <div className="flex flex-col gap-2">
+                <h3 className="text-lg leading-tight font-semibold tracking-tight text-white">
+                  {feature.title}
+                </h3>
+                <p className="text-[14.5px] leading-relaxed text-white/50">
+                  {feature.description}
+                </p>
+              </div>
+
+              <span className="pointer-events-none absolute inset-x-0 bottom-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent transition-transform duration-300 group-hover:scale-x-100" />
             </div>
           ))}
         </div>

@@ -20,19 +20,41 @@ export default function HeroSection() {
   return (
     <ImageStreamHero
       images={IMAGES}
-      className="dark h-[680px] w-full bg-background"
+      className="dark h-[720px] w-full bg-background"
       cards={9}
       speed={18}
       axis={52}
     >
-      <div className="relative z-10 flex h-full flex-col items-center justify-between px-6 py-16 text-center">
-        <h1 className="max-w-3xl text-balance font-[family-name:var(--font-playfair-display)] text-[2.75rem] font-semibold leading-[1.15] tracking-tight text-foreground sm:text-5xl lg:text-[3.5rem]">
-          Единая рабочая среда
-          <br />
-          для обращений, звонков и чатов
-        </h1>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-[5] bg-[radial-gradient(ellipse_65%_55%_at_50%_52%,color-mix(in_oklch,var(--background)_92%,transparent)_0%,color-mix(in_oklch,var(--background)_55%,transparent)_45%,transparent_75%)]"
+      />
 
-        <div className="flex flex-col items-center gap-8">
+      <div className="relative z-10 flex h-full flex-col items-center justify-between px-6 py-16 text-center sm:py-20">
+        <div className="flex flex-col items-center gap-7">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 font-[family-name:var(--font-geist-sans)] text-xs font-medium tracking-wide text-white/70 backdrop-blur-sm">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+            </span>
+            CRM ДБО УКП
+          </span>
+
+          <h1 className="max-w-3xl text-balance font-[family-name:var(--font-playfair-display)] text-[2.75rem] leading-[1.12] font-semibold tracking-tight text-transparent sm:text-5xl lg:text-[3.75rem]"
+            style={{
+              backgroundImage:
+                "linear-gradient(180deg, oklch(1 0 0) 0%, color-mix(in_oklch, var(--foreground) 78%, transparent) 100%)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+            }}
+          >
+            Единая рабочая среда
+            <br />
+            для обращений, звонков и чатов
+          </h1>
+        </div>
+
+        <div className="flex flex-col items-center gap-9">
           <p className="mx-auto max-w-xl text-balance font-[family-name:var(--font-geist-sans)] text-lg leading-relaxed text-muted-foreground sm:text-xl">
             Превращает хаотичный поток клиентских обращений
             <br className="hidden sm:block" />
@@ -41,10 +63,48 @@ export default function HeroSection() {
 
           <LiquidButton
             size="xl"
-            className="bg-black font-[family-name:var(--font-geist-sans)] text-base font-medium text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
+            onClick={() =>
+              document
+                .getElementById("features")
+                ?.scrollIntoView({ behavior: "smooth", block: "start" })
+            }
+            className="group bg-white font-[family-name:var(--font-geist-sans)] text-base font-medium text-black shadow-[0_8px_30px_-8px_rgba(255,255,255,0.35)] hover:bg-white/90"
           >
             Посмотреть возможности
+            <svg
+              viewBox="0 0 16 16"
+              fill="none"
+              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
+            >
+              <path
+                d="M3.5 8h9M8.5 3.5 13 8l-4.5 4.5"
+                stroke="currentColor"
+                strokeWidth={1.6}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </LiquidButton>
+
+          <a
+            href="#features"
+            className="group flex flex-col items-center gap-1.5 font-[family-name:var(--font-geist-sans)] text-xs tracking-wide text-white/40 transition-colors hover:text-white/70"
+          >
+            <span className="uppercase">Что внутри</span>
+            <svg
+              viewBox="0 0 16 16"
+              fill="none"
+              className="h-3.5 w-3.5 animate-bounce"
+            >
+              <path
+                d="M3 6l5 5 5-5"
+                stroke="currentColor"
+                strokeWidth={1.5}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </a>
         </div>
       </div>
     </ImageStreamHero>
