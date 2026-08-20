@@ -64,7 +64,14 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-12"
         >
-          <button className="group inline-flex items-center gap-2 rounded-full bg-[#c8f000] px-8 py-4 text-base font-medium text-black transition-all hover:bg-[#d4ff1a] hover:shadow-[0_0_40px_-8px_#c8f000]">
+          <button
+            onClick={() =>
+              document
+                .getElementById("features")
+                ?.scrollIntoView({ behavior: "smooth", block: "start" })
+            }
+            className="group inline-flex items-center gap-2 rounded-full bg-[#c8f000] px-8 py-4 text-base font-medium text-black transition-all hover:bg-[#d4ff1a] hover:shadow-[0_0_40px_-8px_#c8f000]"
+          >
             Показать возможности
             <span className="transition-transform group-hover:translate-x-1">→</span>
           </button>
