@@ -40,14 +40,7 @@ export default function HeroSection() {
             CRM ДБО УКП
           </span>
 
-          <h1 className="max-w-3xl text-balance font-[family-name:var(--font-playfair-display)] text-[2.75rem] leading-[1.12] font-semibold tracking-tight text-transparent sm:text-5xl lg:text-[3.75rem]"
-            style={{
-              backgroundImage:
-                "linear-gradient(180deg, oklch(1 0 0) 0%, color-mix(in_oklch, var(--foreground) 78%, transparent) 100%)",
-              WebkitBackgroundClip: "text",
-              backgroundClip: "text",
-            }}
-          >
+          <h1 className="max-w-3xl text-balance font-[family-name:var(--font-playfair-display)] text-[2.75rem] leading-[1.12] font-semibold tracking-tight text-foreground sm:text-5xl lg:text-[3.75rem]">
             Единая рабочая среда
             <br />
             для обращений, звонков и чатов
