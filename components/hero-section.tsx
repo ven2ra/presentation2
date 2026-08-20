@@ -79,23 +79,10 @@ export default function HeroSection() {
                 .getElementById("features")
                 ?.scrollIntoView({ behavior: "smooth", block: "start" })
             }
-            className="animate-fade-up group bg-white font-[family-name:var(--font-geist-sans)] text-base font-medium text-black shadow-[0_8px_30px_-8px_rgba(255,255,255,0.35)] hover:bg-white/90"
+            className="animate-fade-up bg-white font-[family-name:var(--font-geist-sans)] text-base font-medium tracking-tight text-black shadow-[0_8px_30px_-8px_rgba(255,255,255,0.35)] hover:bg-white/90"
             style={{ animationDelay: "270ms" }}
           >
             Посмотреть возможности
-            <svg
-              viewBox="0 0 16 16"
-              fill="none"
-              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
-            >
-              <path
-                d="M3.5 8h9M8.5 3.5 13 8l-4.5 4.5"
-                stroke="currentColor"
-                strokeWidth={1.6}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
           </LiquidButton>
 
           <a

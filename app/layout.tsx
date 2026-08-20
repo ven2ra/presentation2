@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Manrope, Playfair_Display, Geist_Mono } from "next/font/google";
+import { Golos_Text, Spectral, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const manrope = Manrope({
+const golosText = Golos_Text({
   variable: "--font-geist-sans",
   subsets: ["latin", "cyrillic"],
 });
 
-const playfairDisplay = Playfair_Display({
+const spectral = Spectral({
   variable: "--font-playfair-display",
+  weight: ["500", "600"],
   subsets: ["latin", "cyrillic"],
 });
 
@@ -26,7 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${manrope.variable} ${playfairDisplay.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${golosText.variable} ${spectral.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
