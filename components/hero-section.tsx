@@ -1,112 +1,70 @@
 "use client";
 
-import { ImageStreamHero } from "@/components/ui/image-stream-hero";
-import { LiquidButton } from "@/components/ui/liquid-glass-button";
-
-const IMAGES = [
-  { src: "/images/main-admin.png", alt: "Главная страница системы" },
-  { src: "/images/new-appeal.png", alt: "Форма создания нового обращения" },
-  { src: "/images/appeals-list.png", alt: "Список обращений" },
-  { src: "/images/new-call.png", alt: "Форма записи нового звонка" },
-  { src: "/images/calls-list.png", alt: "Список клиентских звонков" },
-  { src: "/images/new-chat.png", alt: "Форма создания нового чата" },
-  { src: "/images/chats-list.png", alt: "Список чатов" },
-  { src: "/images/nearest.png", alt: "Раздел «Мои ближайшие»" },
-  { src: "/images/history.png", alt: "История обращений" },
-  { src: "/images/dashboard.png", alt: "Дашборд администратора" },
-];
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function HeroSection() {
   return (
-    <ImageStreamHero
-      images={IMAGES}
-      className="dark h-[720px] w-full bg-background"
-      cards={9}
-      speed={18}
-      axis={52}
-    >
-      {/* mute the raw screenshots so the corridor reads as atmosphere, not noise */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-[4] backdrop-brightness-[0.55] backdrop-saturate-[0.55] backdrop-contrast-[1.05]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-[5] bg-[radial-gradient(ellipse_65%_55%_at_50%_52%,color-mix(in_oklch,var(--background)_92%,transparent)_0%,color-mix(in_oklch,var(--background)_55%,transparent)_45%,transparent_75%)]"
-      />
-      <div
-        aria-hidden
-        className="bg-grain pointer-events-none absolute inset-0 z-[6] opacity-[0.35] mix-blend-overlay"
-      />
+    <section className="relative min-h-[90vh] w-full overflow-hidden bg-[#0B0F19]">
+      {/* Background gradient + glow */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0B0F19] via-[#111827] to-[#1e1b4b]" />
+      <div className="absolute top-1/3 right-1/4 h-[500px] w-[500px] rounded-full bg-violet-600/20 blur-[120px]" />
+      <div className="absolute bottom-0 left-1/4 h-[400px] w-[400px] rounded-full bg-blue-600/10 blur-[100px]" />
 
-      <div className="relative z-10 flex h-full flex-col items-center justify-between px-6 py-16 text-center sm:py-20">
-        <div className="flex flex-col items-center gap-7">
-          <span
-            className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 font-[family-name:var(--font-geist-sans)] text-xs font-medium tracking-wide text-white/70 backdrop-blur-sm"
-            style={{ animationDelay: "0ms" }}
-          >
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            </span>
-            CRM ДБО УКП
-          </span>
-
-          <h1
-            className="animate-fade-up max-w-3xl text-balance text-[2.75rem] leading-[1.08] font-extrabold tracking-[-0.03em] text-foreground sm:text-5xl lg:text-[3.75rem]"
-            style={{ animationDelay: "90ms" }}
-          >
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center justify-between gap-12 px-6 py-20 lg:flex-row lg:py-28">
+        {/* Text content */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="max-w-xl text-center lg:text-left"
+        >
+          <h1 className="text-4xl font-semibold leading-[1.15] tracking-tight text-white sm:text-5xl lg:text-6xl">
             Единая рабочая среда
             <br />
             для обращений, звонков и чатов
           </h1>
-        </div>
 
-        <div className="flex flex-col items-center gap-9">
-          <p
-            className="animate-fade-up mx-auto max-w-xl text-balance font-[family-name:var(--font-geist-sans)] text-lg leading-relaxed text-muted-foreground sm:text-xl"
-            style={{ animationDelay: "180ms" }}
-          >
-            Превращает хаотичный поток клиентских обращений
-            <br className="hidden sm:block" />
-            в контролируемый, прозрачный и измеримый процесс
+          <p className="mt-6 text-lg leading-relaxed text-slate-300 sm:text-xl">
+            Превращает хаотичный поток клиентских обращений в контролируемый,
+            прозрачный и измеримый процесс — обращения, звонки и чаты в одном месте.
           </p>
 
-          <LiquidButton
-            size="xl"
-            onClick={() =>
-              document
-                .getElementById("features")
-                ?.scrollIntoView({ behavior: "smooth", block: "start" })
-            }
-            className="animate-fade-up bg-white font-[family-name:var(--font-geist-sans)] text-base font-medium tracking-tight text-black shadow-[0_8px_30px_-8px_rgba(255,255,255,0.35)] hover:bg-white/90"
-            style={{ animationDelay: "270ms" }}
-          >
-            Посмотреть возможности
-          </LiquidButton>
-
-          <a
-            href="#features"
-            className="animate-fade-up group flex flex-col items-center gap-1.5 font-[family-name:var(--font-geist-sans)] text-xs tracking-wide text-white/40 transition-colors hover:text-white/70"
-            style={{ animationDelay: "360ms" }}
-          >
-            <span className="uppercase">Что внутри</span>
-            <svg
-              viewBox="0 0 16 16"
-              fill="none"
-              className="h-3.5 w-3.5 animate-bounce"
+          <div className="mt-10 flex justify-center lg:justify-start">
+            <Button
+              size="lg"
+              onClick={() =>
+                document
+                  .getElementById("features")
+                  ?.scrollIntoView({ behavior: "smooth", block: "start" })
+              }
+              className="h-13 rounded-full bg-white px-8 text-base font-medium text-black hover:bg-slate-100"
             >
-              <path
-                d="M3 6l5 5 5-5"
-                stroke="currentColor"
-                strokeWidth={1.5}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </a>
-        </div>
+              Посмотреть возможности
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+        </motion.div>
+
+        {/* Product screenshot */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, x: 40 }}
+          animate={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className="relative w-full max-w-lg lg:max-w-xl"
+        >
+          <div className="relative aspect-[4/3]">
+            <img
+              src="/images/main-admin.png"
+              alt="Главная страница системы"
+              className="h-full w-full rounded-2xl object-cover shadow-2xl ring-1 ring-white/10"
+            />
+            {/* Soft glow under the screenshot */}
+            <div className="absolute -bottom-10 left-1/2 h-24 w-3/4 -translate-x-1/2 rounded-full bg-violet-500/30 blur-3xl" />
+          </div>
+        </motion.div>
       </div>
-    </ImageStreamHero>
+    </section>
   );
 }
