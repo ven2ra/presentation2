@@ -1,7 +1,7 @@
 "use client";
 
 import { ImageStreamHero } from "@/components/ui/image-stream-hero";
-import { Button } from "@/components/ui/button";
+import { LiquidButton } from "@/components/ui/liquid-glass-button";
 
 const IMAGES = [
   { src: "/images/main-admin.png", alt: "Главная страница системы" },
@@ -41,12 +41,9 @@ export default function HeroSection() {
         </div>
 
         <div className="mt-10">
-          <Button
-            size="lg"
-            className="h-12 rounded-full px-8 text-base font-medium shadow-sm transition-all hover:shadow-md"
-          >
+          <LiquidButton size="xl" className="text-base font-medium text-foreground">
             Посмотреть возможности
-          </Button>
+          </LiquidButton>
         </div>
       </div>
     </ImageStreamHero>
