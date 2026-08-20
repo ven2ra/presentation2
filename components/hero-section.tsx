@@ -26,14 +26,14 @@ export default function HeroSection() {
       axis={52}
     >
       <div className="relative z-10 flex h-full flex-col items-center justify-between px-6 py-16 text-center">
-        <h1 className="max-w-3xl text-balance text-[2.75rem] font-semibold leading-[1.15] tracking-tight text-foreground sm:text-5xl lg:text-[3.5rem]">
+        <h1 className="max-w-3xl text-balance font-[family-name:var(--font-playfair-display)] text-[2.75rem] font-semibold leading-[1.15] tracking-tight text-foreground sm:text-5xl lg:text-[3.5rem]">
           Единая рабочая среда
           <br />
           для обращений, звонков и чатов
         </h1>
 
         <div className="flex flex-col items-center gap-8">
-          <p className="mx-auto max-w-xl text-balance text-lg leading-relaxed text-muted-foreground sm:text-xl">
+          <p className="mx-auto max-w-xl text-balance font-[family-name:var(--font-geist-sans)] text-lg leading-relaxed text-muted-foreground sm:text-xl">
             Превращает хаотичный поток клиентских обращений
             <br className="hidden sm:block" />
             в контролируемый, прозрачный и измеримый процесс
@@ -41,7 +41,7 @@ export default function HeroSection() {
 
           <LiquidButton
             size="xl"
-            className="bg-black text-base font-medium text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
+            className="bg-black font-[family-name:var(--font-geist-sans)] text-base font-medium text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
           >
             Посмотреть возможности
           </LiquidButton>
