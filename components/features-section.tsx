@@ -1,3 +1,7 @@
+"use client";
+
+import * as React from "react";
+
 const FEATURES = [
   {
     icon: (
@@ -70,7 +74,76 @@ const FEATURES = [
   },
 ];
 
+function useRevealed<T extends HTMLElement>() {
+  const ref = React.useRef<T>(null);
+  const [revealed, setRevealed] = React.useState(false);
+
+  React.useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setRevealed(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  return { ref, revealed };
+}
+
+function FeatureCard({
+  feature,
+  index,
+}: {
+  feature: (typeof FEATURES)[number];
+  index: number;
+}) {
+  const { ref, revealed } = useRevealed<HTMLDivElement>();
+
+  return (
+    <div
+      ref={ref}
+      className="group relative flex flex-col gap-5 bg-[#0a0a0a] p-9 transition-[background-color,opacity,transform] duration-700 ease-out hover:bg-[#101010]"
+      style={{
+        opacity: revealed ? 1 : 0,
+        transform: revealed ? "translateY(0)" : "translateY(16px)",
+        transitionDelay: revealed ? `${(index % 3) * 90}ms` : "0ms",
+      }}
+    >
+      <span className="pointer-events-none absolute top-7 right-8 font-[family-name:var(--font-playfair-display)] text-4xl font-semibold text-white/[0.04] transition-colors duration-300 group-hover:text-white/[0.07]">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+
+      <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white/60 transition-all duration-300 group-hover:border-emerald-400/40 group-hover:bg-emerald-400/10 group-hover:text-emerald-300 group-hover:-translate-y-0.5">
+        <div className="h-5 w-5">{feature.icon}</div>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <h3 className="text-lg leading-tight font-semibold tracking-tight text-white">
+          {feature.title}
+        </h3>
+        <p className="text-[14.5px] leading-relaxed text-white/50">
+          {feature.description}
+        </p>
+      </div>
+
+      <span className="pointer-events-none absolute inset-x-0 bottom-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent transition-transform duration-300 group-hover:scale-x-100" />
+    </div>
+  );
+}
+
 export default function FeaturesSection() {
+  const { ref: headerRef, revealed: headerRevealed } =
+    useRevealed<HTMLDivElement>();
+
   return (
     <section
       id="features"
@@ -86,9 +159,20 @@ export default function FeaturesSection() {
           backgroundSize: "100% 100%, 22px 22px",
         }}
       />
+      <div
+        aria-hidden
+        className="bg-grain pointer-events-none absolute inset-0 opacity-[0.35] mix-blend-overlay"
+      />
 
       <div className="relative mx-auto w-full max-w-[1100px]">
-        <div className="mx-auto mb-16 flex max-w-2xl flex-col items-center gap-5 text-center sm:mb-20">
+        <div
+          ref={headerRef}
+          className="mx-auto mb-16 flex max-w-2xl flex-col items-center gap-5 text-center transition-[opacity,transform] duration-700 ease-out sm:mb-20"
+          style={{
+            opacity: headerRevealed ? 1 : 0,
+            transform: headerRevealed ? "translateY(0)" : "translateY(16px)",
+          }}
+        >
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-medium tracking-wide text-white/60 backdrop-blur-sm">
             Возможности
           </span>
@@ -105,29 +189,7 @@ export default function FeaturesSection() {
 
         <div className="grid grid-cols-1 gap-px overflow-hidden rounded-3xl bg-white/[0.06] sm:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map((feature, i) => (
-            <div
-              key={feature.title}
-              className="group relative flex flex-col gap-5 bg-[#0a0a0a] p-9 transition-colors duration-300 hover:bg-[#101010]"
-            >
-              <span className="pointer-events-none absolute top-7 right-8 font-[family-name:var(--font-playfair-display)] text-4xl font-semibold text-white/[0.04] transition-colors duration-300 group-hover:text-white/[0.07]">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white/60 transition-all duration-300 group-hover:border-emerald-400/40 group-hover:bg-emerald-400/10 group-hover:text-emerald-300">
-                <div className="h-5 w-5">{feature.icon}</div>
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <h3 className="text-lg leading-tight font-semibold tracking-tight text-white">
-                  {feature.title}
-                </h3>
-                <p className="text-[14.5px] leading-relaxed text-white/50">
-                  {feature.description}
-                </p>
-              </div>
-
-              <span className="pointer-events-none absolute inset-x-0 bottom-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent transition-transform duration-300 group-hover:scale-x-100" />
-            </div>
+            <FeatureCard key={feature.title} feature={feature} index={i} />
           ))}
         </div>
       </div>

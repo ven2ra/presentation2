@@ -25,14 +25,26 @@ export default function HeroSection() {
       speed={18}
       axis={52}
     >
+      {/* mute the raw screenshots so the corridor reads as atmosphere, not noise */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-[4] backdrop-brightness-[0.55] backdrop-saturate-[0.55] backdrop-contrast-[1.05]"
+      />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 z-[5] bg-[radial-gradient(ellipse_65%_55%_at_50%_52%,color-mix(in_oklch,var(--background)_92%,transparent)_0%,color-mix(in_oklch,var(--background)_55%,transparent)_45%,transparent_75%)]"
       />
+      <div
+        aria-hidden
+        className="bg-grain pointer-events-none absolute inset-0 z-[6] opacity-[0.35] mix-blend-overlay"
+      />
 
       <div className="relative z-10 flex h-full flex-col items-center justify-between px-6 py-16 text-center sm:py-20">
         <div className="flex flex-col items-center gap-7">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 font-[family-name:var(--font-geist-sans)] text-xs font-medium tracking-wide text-white/70 backdrop-blur-sm">
+          <span
+            className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 font-[family-name:var(--font-geist-sans)] text-xs font-medium tracking-wide text-white/70 backdrop-blur-sm"
+            style={{ animationDelay: "0ms" }}
+          >
             <span className="relative flex h-1.5 w-1.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -40,7 +52,10 @@ export default function HeroSection() {
             CRM ДБО УКП
           </span>
 
-          <h1 className="max-w-3xl text-balance font-[family-name:var(--font-playfair-display)] text-[2.75rem] leading-[1.12] font-semibold tracking-tight text-foreground sm:text-5xl lg:text-[3.75rem]">
+          <h1
+            className="animate-fade-up max-w-3xl text-balance font-[family-name:var(--font-playfair-display)] text-[2.75rem] leading-[1.12] font-semibold tracking-tight text-foreground sm:text-5xl lg:text-[3.75rem]"
+            style={{ animationDelay: "90ms" }}
+          >
             Единая рабочая среда
             <br />
             для обращений, звонков и чатов
@@ -48,7 +63,10 @@ export default function HeroSection() {
         </div>
 
         <div className="flex flex-col items-center gap-9">
-          <p className="mx-auto max-w-xl text-balance font-[family-name:var(--font-geist-sans)] text-lg leading-relaxed text-muted-foreground sm:text-xl">
+          <p
+            className="animate-fade-up mx-auto max-w-xl text-balance font-[family-name:var(--font-geist-sans)] text-lg leading-relaxed text-muted-foreground sm:text-xl"
+            style={{ animationDelay: "180ms" }}
+          >
             Превращает хаотичный поток клиентских обращений
             <br className="hidden sm:block" />
             в контролируемый, прозрачный и измеримый процесс
@@ -61,7 +79,8 @@ export default function HeroSection() {
                 .getElementById("features")
                 ?.scrollIntoView({ behavior: "smooth", block: "start" })
             }
-            className="group bg-white font-[family-name:var(--font-geist-sans)] text-base font-medium text-black shadow-[0_8px_30px_-8px_rgba(255,255,255,0.35)] hover:bg-white/90"
+            className="animate-fade-up group bg-white font-[family-name:var(--font-geist-sans)] text-base font-medium text-black shadow-[0_8px_30px_-8px_rgba(255,255,255,0.35)] hover:bg-white/90"
+            style={{ animationDelay: "270ms" }}
           >
             Посмотреть возможности
             <svg
@@ -81,7 +100,8 @@ export default function HeroSection() {
 
           <a
             href="#features"
-            className="group flex flex-col items-center gap-1.5 font-[family-name:var(--font-geist-sans)] text-xs tracking-wide text-white/40 transition-colors hover:text-white/70"
+            className="animate-fade-up group flex flex-col items-center gap-1.5 font-[family-name:var(--font-geist-sans)] text-xs tracking-wide text-white/40 transition-colors hover:text-white/70"
+            style={{ animationDelay: "360ms" }}
           >
             <span className="uppercase">Что внутри</span>
             <svg
