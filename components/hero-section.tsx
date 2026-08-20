@@ -20,7 +20,7 @@ export default function HeroSection() {
   return (
     <ImageStreamHero
       images={IMAGES}
-      className="h-[680px] w-full bg-background"
+      className="dark h-[680px] w-full bg-background"
       cards={9}
       speed={18}
       axis={52}
