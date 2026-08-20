@@ -39,7 +39,10 @@ export default function HeroSection() {
             в контролируемый, прозрачный и измеримый процесс
           </p>
 
-          <LiquidButton size="xl" className="text-base font-medium text-foreground">
+          <LiquidButton
+            size="xl"
+            className="bg-black text-base font-medium text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
+          >
             Посмотреть возможности
           </LiquidButton>
         </div>
