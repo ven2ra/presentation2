@@ -2,10 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Clock, MessageSquare, CheckCircle2 } from "lucide-react";
+import { HeroTitleAnimation } from "@/components/ruixen/hero-title-animation";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-black">
+    <section className="dark relative min-h-screen w-full overflow-hidden bg-black">
       {/* Radial glow */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#c8f000]/15 blur-[120px]" />
 
@@ -28,20 +29,7 @@ export default function HeroSection() {
         </motion.div>
 
         {/* Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="max-w-4xl text-4xl font-semibold leading-[1.15] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[4.25rem]"
-        >
-          Единая рабочая
-          <br />
-          среда для
-          <br />
-          обращений,
-          <br />
-          звонков и чатов
-        </motion.h1>
+        <HeroTitleAnimation className="max-w-4xl" />
 
         {/* Subtitle */}
         <motion.p
