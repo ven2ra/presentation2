@@ -111,31 +111,31 @@ function FeatureCard({
   return (
     <div
       ref={ref}
-      className="group relative flex flex-col gap-5 bg-[#0a0a0a] p-9 transition-[background-color,opacity,transform] duration-700 ease-out hover:bg-[#101010]"
+      className="group relative flex flex-col gap-5 bg-white p-9 transition-[background-color,opacity,transform] duration-700 ease-out hover:bg-zinc-50"
       style={{
         opacity: revealed ? 1 : 0,
         transform: revealed ? "translateY(0)" : "translateY(16px)",
         transitionDelay: revealed ? `${(index % 3) * 90}ms` : "0ms",
       }}
     >
-      <span className="pointer-events-none absolute top-7 right-8 font-[family-name:var(--font-display)] text-4xl font-extrabold tracking-tight text-white/[0.04] transition-colors duration-300 group-hover:text-white/[0.07]">
+      <span className="pointer-events-none absolute top-7 right-8 font-[family-name:var(--font-display)] text-4xl font-extrabold tracking-tight text-zinc-900/[0.04] transition-colors duration-300 group-hover:text-zinc-900/[0.08]">
         {String(index + 1).padStart(2, "0")}
       </span>
 
-      <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white/60 transition-all duration-300 group-hover:border-emerald-400/40 group-hover:bg-emerald-400/10 group-hover:text-emerald-300 group-hover:-translate-y-0.5">
+      <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-500 transition-all duration-300 group-hover:border-emerald-500/40 group-hover:bg-emerald-500/10 group-hover:text-emerald-600 group-hover:-translate-y-0.5">
         <div className="h-5 w-5">{feature.icon}</div>
       </div>
 
       <div className="flex flex-col gap-2">
-        <h3 className="font-[family-name:var(--font-display)] text-lg leading-tight font-semibold tracking-tight text-white">
+        <h3 className="font-[family-name:var(--font-display)] text-lg leading-tight font-semibold tracking-tight text-zinc-950">
           {feature.title}
         </h3>
-        <p className="text-[14.5px] leading-relaxed text-white/50">
+        <p className="text-[14.5px] leading-relaxed text-zinc-500">
           {feature.description}
         </p>
       </div>
 
-      <span className="pointer-events-none absolute inset-x-0 bottom-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent transition-transform duration-300 group-hover:scale-x-100" />
+      <span className="pointer-events-none absolute inset-x-0 bottom-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-emerald-500/60 to-transparent transition-transform duration-300 group-hover:scale-x-100" />
     </div>
   );
 }
@@ -147,21 +147,21 @@ export default function FeaturesSection() {
   return (
     <section
       id="features"
-      className="relative scroll-mt-6 overflow-hidden bg-black px-5 py-28 sm:py-32"
+      className="relative scroll-mt-6 overflow-hidden bg-white px-5 py-28 sm:py-32"
     >
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage:
-            "radial-gradient(ellipse 60% 50% at 50% 0%, color-mix(in oklch, white 6%, transparent) 0%, transparent 60%)," +
-            "radial-gradient(#1f1f1f 1px, transparent 1px)",
+            "radial-gradient(ellipse 60% 50% at 50% 0%, color-mix(in oklch, black 4%, transparent) 0%, transparent 60%)," +
+            "radial-gradient(#e4e4e7 1px, transparent 1px)",
           backgroundSize: "100% 100%, 22px 22px",
         }}
       />
       <div
         aria-hidden
-        className="bg-grain pointer-events-none absolute inset-0 opacity-[0.35] mix-blend-overlay"
+        className="bg-grain pointer-events-none absolute inset-0 opacity-[0.2] mix-blend-multiply"
       />
 
       <div className="relative mx-auto w-full max-w-[1100px]">
@@ -173,21 +173,21 @@ export default function FeaturesSection() {
             transform: headerRevealed ? "translateY(0)" : "translateY(16px)",
           }}
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-medium tracking-wide text-white/60 backdrop-blur-sm">
+          <span className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-4 py-1.5 text-xs font-medium tracking-wide text-zinc-600">
             Возможности
           </span>
 
-          <h2 className="text-balance font-[family-name:var(--font-display)] text-3xl leading-[1.1] font-extrabold tracking-[-0.02em] text-white sm:text-4xl lg:text-[2.75rem]">
+          <h2 className="text-balance font-[family-name:var(--font-display)] text-3xl leading-[1.1] font-extrabold tracking-[-0.02em] text-zinc-950 sm:text-4xl lg:text-[2.75rem]">
             Что получает уже отдел с первого дня?
           </h2>
 
-          <p className="text-balance text-base leading-relaxed text-white/50 sm:text-lg">
+          <p className="text-balance text-base leading-relaxed text-zinc-500 sm:text-lg">
             Никаких долгих внедрений и обучения — команда начинает работать
             в системе в первый же день.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-3xl bg-white/[0.06] sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-200 sm:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map((feature, i) => (
             <FeatureCard key={feature.title} feature={feature} index={i} />
           ))}
