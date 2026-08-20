@@ -4,16 +4,16 @@ import { ImageStreamHero } from "@/components/ui/image-stream-hero";
 import { Button } from "@/components/ui/button";
 
 const IMAGES = [
-  { src: "/images/main-admin.jpg", alt: "Главная страница системы" },
-  { src: "/images/new-appeal.jpg", alt: "Форма создания нового обращения" },
-  { src: "/images/appeals-list.jpg", alt: "Список обращений" },
-  { src: "/images/new-call.jpg", alt: "Форма записи нового звонка" },
-  { src: "/images/calls-list.jpg", alt: "Список клиентских звонков" },
-  { src: "/images/new-chat.jpg", alt: "Форма создания нового чата" },
-  { src: "/images/chats-list.jpg", alt: "Список чатов" },
-  { src: "/images/nearest.jpg", alt: "Раздел «Мои ближайшие»" },
-  { src: "/images/history.jpg", alt: "История обращений" },
-  { src: "/images/dashboard.jpg", alt: "Дашборд администратора" },
+  { src: "/images/main-admin.png", alt: "Главная страница системы" },
+  { src: "/images/new-appeal.png", alt: "Форма создания нового обращения" },
+  { src: "/images/appeals-list.png", alt: "Список обращений" },
+  { src: "/images/new-call.png", alt: "Форма записи нового звонка" },
+  { src: "/images/calls-list.png", alt: "Список клиентских звонков" },
+  { src: "/images/new-chat.png", alt: "Форма создания нового чата" },
+  { src: "/images/chats-list.png", alt: "Список чатов" },
+  { src: "/images/nearest.png", alt: "Раздел «Мои ближайшие»" },
+  { src: "/images/history.png", alt: "История обращений" },
+  { src: "/images/dashboard.png", alt: "Дашборд администратора" },
 ];
 
 export default function HeroSection() {
