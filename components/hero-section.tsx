@@ -11,12 +11,15 @@ const GREETINGS = [
   { text: "Обращения" },
   { text: "Аналитика" },
   { text: "История" },
+  { text: "Готовы?" },
 ];
 
 export default function HeroSection() {
   return (
     <ArcRevealHero
       greetings={GREETINGS}
+      greetingHold={900}
+      revealDuration={1900}
       storageKey="crm-hero-intro"
       className="bg-white text-zinc-950"
     >
