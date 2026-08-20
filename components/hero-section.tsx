@@ -53,7 +53,7 @@ export default function HeroSection() {
           </span>
 
           <h1
-            className="animate-fade-up max-w-3xl text-balance font-[family-name:var(--font-playfair-display)] text-[2.75rem] leading-[1.12] font-semibold tracking-tight text-foreground sm:text-5xl lg:text-[3.75rem]"
+            className="animate-fade-up max-w-3xl text-balance text-[2.75rem] leading-[1.08] font-extrabold tracking-[-0.03em] text-foreground sm:text-5xl lg:text-[3.75rem]"
             style={{ animationDelay: "90ms" }}
           >
             Единая рабочая среда

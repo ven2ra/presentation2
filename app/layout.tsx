@@ -1,15 +1,9 @@
 import type { Metadata } from "next";
-import { Golos_Text, Spectral, Geist_Mono } from "next/font/google";
+import { Golos_Text, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const golosText = Golos_Text({
   variable: "--font-geist-sans",
-  subsets: ["latin", "cyrillic"],
-});
-
-const spectral = Spectral({
-  variable: "--font-playfair-display",
-  weight: ["500", "600"],
   subsets: ["latin", "cyrillic"],
 });
 
@@ -27,7 +21,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${golosText.variable} ${spectral.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${golosText.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
