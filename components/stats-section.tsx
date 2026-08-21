@@ -118,7 +118,7 @@ export default function StatsSection() {
         {STATS.map((stat, i) => (
           <div
             key={stat.label}
-            className="text-center transition-[opacity,transform] duration-700 ease-out sm:text-left"
+            className="text-center transition-[opacity,transform] duration-700 ease-out"
             style={{
               opacity: revealed ? 1 : 0,
               transform: revealed ? "translateY(0)" : "translateY(24px)",
