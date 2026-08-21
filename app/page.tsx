@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <div className="flex flex-1 flex-col">
       <HeroSection />
-      <ProductShowcaseSection />
       <FeaturesSection />
+      <ProductShowcaseSection />
     </div>
   );
 }
