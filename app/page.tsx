@@ -1,6 +1,7 @@
 import HeroSection from "@/components/hero-section";
 import ProductShowcaseSection from "@/components/product-showcase-section";
 import FeaturesSection from "@/components/features-section";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <HeroSection />
       <FeaturesSection />
       <ProductShowcaseSection />
+      <Footer />
     </div>
   );
 }

@@ -102,6 +102,7 @@ export default function ProductShowcaseSection() {
 
   return (
     <section
+      id="product"
       ref={containerRef}
       className="relative bg-white"
       style={{ height: `${SLIDES.length * VH_PER_SLIDE * 100}vh` }}
