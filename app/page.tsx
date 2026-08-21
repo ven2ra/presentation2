@@ -2,6 +2,7 @@ import HeroSection from "@/components/hero-section";
 import ProductShowcaseSection from "@/components/product-showcase-section";
 import FeaturesSection from "@/components/features-section";
 import StatsSection from "@/components/stats-section";
+import CtaSection from "@/components/cta-section";
 import Footer from "@/components/footer";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <FeaturesSection />
       <ProductShowcaseSection />
       <StatsSection />
+      <CtaSection />
       <Footer />
     </div>
   );
