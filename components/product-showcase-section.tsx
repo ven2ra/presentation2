@@ -110,7 +110,7 @@ export default function ProductShowcaseSection() {
         <div className="mx-auto grid w-full max-w-[1480px] grid-cols-1 items-center gap-14 lg:grid-cols-[1.35fr_1fr] lg:gap-20">
           {/* Rotating screenshot */}
           <div
-            className="relative aspect-[4/3] min-h-[380px] w-full overflow-hidden rounded-3xl border border-zinc-200 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.28)] sm:min-h-[460px] lg:aspect-auto lg:h-[70vh] lg:min-h-[560px]"
+            className="relative aspect-[1919/1010] w-full overflow-hidden rounded-3xl border border-zinc-200 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.28)]"
             style={{ perspective: "1600px" }}
           >
             {SLIDES.map((slide, i) => {
